@@ -1,0 +1,36 @@
+{
+  "promotions": [
+    {
+      "id": "1",
+      "header": "Winter sale!",
+      "description": "Only now 40% discount on winter products",
+      "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "image": "promo1.jpg",
+      "colorFrom": "rgba(18, 114, 168, 0.52)",
+      "colorTo": "rgba(109, 204, 220, 0.73)",
+      "color": "#a5cadf",
+      "finishCondition": "while stocks last",
+      "items": [
+        "5ea08604c5254c8643359963",
+        "5ea0860429790ae50c4ff1be",
+        "5ea086044623f65e83a0fecc"
+      ]
+    },
+    {
+      "id": "2",
+      "header": "Hot promotion!",
+      "description": "Save 20% on hot items",
+      "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "image": "promo2.jpg",
+      "colorFrom": "rgba(187, 35, 85, 0.52)",
+      "colorTo": "rgba(238, 128, 155, 0.13)",
+      "color": "#9abcc4",
+      "finishDate": 1591187930429,
+      "items": [
+        "5ea08604dd0221b86c6fea89",
+        "5ea08604fb9e6efa95c1637b",
+        "5ea08604f87b1c72673c908a"
+      ]
+    }
+  ]
+}
