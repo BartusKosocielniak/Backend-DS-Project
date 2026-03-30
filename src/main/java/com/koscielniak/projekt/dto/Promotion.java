@@ -7,6 +7,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Promotion {
     public String id;
+    public String image;
     public String header;
     public String description;
     public String longDescription;
