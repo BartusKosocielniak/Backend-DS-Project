@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Product {
     public String id;
     public String name;
+    public String price;
+    public String image;
+    public String rate;
     public String category;
     public String description;
 
