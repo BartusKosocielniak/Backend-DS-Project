@@ -1,0 +1,22 @@
+[ {
+  "email" : "test@wp.pl",
+  "password" : "123"
+}, {
+  "email" : "fsdfds@dfsffd",
+  "password" : "1234"
+}, {
+  "email" : "cycki@cycki.pl",
+  "password" : "japidi"
+}, {
+  "email" : "bkosciel@interia.pl",
+  "password" : "dasdsad"
+}, {
+  "email" : "bkosciel@interia.pldddd",
+  "password" : "dasdsadasdsad"
+}, {
+  "email" : "fdsfsdf@sdsad.pl",
+  "password" : "12345"
+}, {
+  "email" : "bkosciel@interia.plllll",
+  "password" : "213"
+} ]
