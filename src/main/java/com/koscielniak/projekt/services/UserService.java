@@ -48,4 +48,9 @@ public class UserService {
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(PATH), users);
         return "registered";
     }
+
+    public User login(User user) {
+        List<User> users = readUsers();
+        return users.stream().filter(u -> u.email.equals(user.getEmail()) && u.password.equals(user.getPassword())).findFirst().orElse(null);
+    }
 }
