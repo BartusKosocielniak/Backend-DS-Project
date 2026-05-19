@@ -32,14 +32,15 @@ public class ProductController {
     ) {
         List<Product> list = dataService.getProducts();
         if (name!=null && !name.isEmpty()) {
-            list = new java.util.ArrayList<>(list.stream()
+            list = list.stream()
                     .filter(product -> product.getName().equals(name))
-                    .toList());
+                    .toList();
         }
+
         if(category !=null && !category.isEmpty()){
-           list = new java.util.ArrayList<>(list.stream()
+           list = list.stream()
                     .filter(product -> product.getCategory().equals(category))
-                    .toList());
+                    .toList();
         }
 //        //Malejace
         if (Objects.equals(sort, "price")) {
