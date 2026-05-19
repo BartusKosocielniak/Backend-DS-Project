@@ -33,13 +33,13 @@ public class ProductController {
         List<Product> list = dataService.getProducts();
         if (name!=null && !name.isEmpty()) {
             list = list.stream()
-                    .filter(product -> product.getName().equals(name))
+                    .filter(product -> product.getName().contains(name))
                     .toList();
         }
 
         if(category !=null && !category.isEmpty()){
            list = list.stream()
-                    .filter(product -> product.getCategory().equals(category))
+                    .filter(product -> product.getCategory().contains(category))
                     .toList();
         }
 //        //Malejace
