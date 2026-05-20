@@ -69,4 +69,9 @@ public class ProductController {
                 .orElse(null);
     }
 
+    @GetMapping("/categories")
+    public List<String> getCategories() {
+        return dataService.getCategories();
+    }
+
 }

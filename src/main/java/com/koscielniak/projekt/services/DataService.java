@@ -11,7 +11,10 @@ import tools.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class DataService {
@@ -45,4 +48,10 @@ public class DataService {
         return products;
     }
 
+    public List<String> getCategories(){
+        List<String> allCategories = products.stream().map(Product::getCategory)
+                .collect(Collectors.toList());
+        return new HashSet<>(allCategories).stream().toList();
+
+    }
 }
