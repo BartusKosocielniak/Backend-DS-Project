@@ -25,11 +25,13 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public List<Product> getProducts(
+    public Map<String, Object> getProducts(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String category,
             @RequestParam(required = false, name = "_sort") String sort,
-            @RequestParam(required = false, name = "_order") String order
+            @RequestParam(required = false, name = "_order") String order,
+            @RequestParam(required = false, name = "_page") Integer page,
+            @RequestParam(required = false, name = "_limit") Integer limit
     ) {
         List<Product> list = dataService.getProducts();
         if (name!=null && !name.isEmpty()) {
@@ -59,7 +61,11 @@ public class ProductController {
             Collections.reverse(list);
         }
 
-        return list;
+        //todo w trakcie robienia paginacji
+        Map<String, Object> response = new HashMap<>();
+        response.put("data", list);
+        response.put("total", "6767");
+        return response;
     }
 
     @GetMapping("/product/{id}")
