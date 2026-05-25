@@ -6,6 +6,7 @@ import com.koscielniak.projekt.services.DataService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
@@ -34,24 +35,24 @@ public class ProductController {
         if (name!=null && !name.isEmpty()) {
             list = list.stream()
                     .filter(product -> product.getName().contains(name))
-                    .toList();
+                    .collect(Collectors.toList());
         }
 
         if(category !=null && !category.isEmpty()){
            list = list.stream()
                     .filter(product -> product.getCategory().contains(category))
-                    .toList();
+                   .collect(Collectors.toList());
         }
 //        //Malejace
         if (Objects.equals(sort, "price")) {
-            list.stream()
-                    .sorted((a, b) -> a.getPrice().compareToIgnoreCase(b.getPrice()))
-                    .toList();
+            list = list.stream()
+                    .sorted((a, b) -> Integer.compare(Integer.parseInt(a.getPrice()), Integer.parseInt(b.getPrice())))
+                    .collect(Collectors.toList());
         }
         if (Objects.equals(sort, "name")) {
-            list.stream()
+            list = list.stream()
                     .sorted((a, b) -> a.getName().compareToIgnoreCase(b.getName()))
-                    .toList();
+                    .collect(Collectors.toList());
         }
 
         if (Objects.equals(order, "DESC") || Objects.equals(order, "desc")) {
