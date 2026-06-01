@@ -31,19 +31,19 @@ public class ProductController {
             @RequestParam(required = false, name = "_sort") String sort,
             @RequestParam(required = false, name = "_order") String order,
             @RequestParam(required = false, name = "_page") Integer page,
-            @RequestParam(required = false, name = "_limit") Integer limit
+            @RequestParam(required = false, name = "_limit", defaultValue = "10") Integer limit
     ) {
         List<Product> list = dataService.getProducts();
-        if (name!=null && !name.isEmpty()) {
+        if (name != null && !name.isEmpty()) {
             list = list.stream()
                     .filter(product -> product.getName().contains(name))
                     .collect(Collectors.toList());
         }
 
-        if(category !=null && !category.isEmpty()){
-           list = list.stream()
+        if (category != null && !category.isEmpty()) {
+            list = list.stream()
                     .filter(product -> product.getCategory().contains(category))
-                   .collect(Collectors.toList());
+                    .collect(Collectors.toList());
         }
 //        //Malejace
         if (Objects.equals(sort, "price")) {
@@ -61,10 +61,17 @@ public class ProductController {
             Collections.reverse(list);
         }
 
-        //todo w trakcie robienia paginacji
+        List<Product> paginatedData = new ArrayList<Product>();
+        if (page != null && limit != null) {
+            int startIndex = Math.min((page - 1) * (limit), list.toArray().length - 1);
+            int lastIndex = Math.min((page * limit), list.toArray().length - 1);
+            paginatedData = list.subList(startIndex, lastIndex);
+        } else {
+            paginatedData = list;
+        }
         Map<String, Object> response = new HashMap<>();
-        response.put("data", list);
-        response.put("total", "6767");
+        response.put("data", paginatedData);
+        response.put("total", list.toArray().length);
         return response;
     }
 
