@@ -41,9 +41,11 @@ public class ProductController {
         }
 
         if (category != null && !category.isEmpty()) {
-            list = list.stream()
-                    .filter(product -> product.getCategory().contains(category))
-                    .collect(Collectors.toList());
+            if (!category.equals("ALL")) {
+                list = list.stream()
+                        .filter(product -> product.getCategory().contains(category))
+                        .collect(Collectors.toList());
+            }
         }
 //        //Malejace
         if (Objects.equals(sort, "price")) {
@@ -62,9 +64,9 @@ public class ProductController {
         }
 
         List<Product> paginatedData = new ArrayList<Product>();
-        if (page != null && limit != null) {
-            int startIndex = Math.min((page - 1) * (limit), list.toArray().length - 1);
-            int lastIndex = Math.min((page * limit), list.toArray().length - 1);
+        if (page != null && limit != null && page >= 1 && limit >= 1) {
+            int startIndex = Math.max(Math.min((page - 1) * (limit), list.toArray().length - 1), 0);
+            int lastIndex = Math.max(Math.min((page * limit), list.toArray().length - 1), 0);
             paginatedData = list.subList(startIndex, lastIndex);
         } else {
             paginatedData = list;
